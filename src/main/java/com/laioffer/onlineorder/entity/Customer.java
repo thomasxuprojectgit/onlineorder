@@ -1,11 +1,23 @@
 package com.laioffer.onlineorder.entity;
 
-public class Customer {
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Entity
+@Table(name = "customers")
+public class Customer implements Serializable  {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
     private String email;
+
     private String firstName;
+
     private String lastName;
+
     private String password;
+
     private boolean enabled;
 
     public String getEmail() {
@@ -41,11 +53,12 @@ public class Customer {
     }
 
     public boolean isEnabled() {
-        return  enabled;
+        return enabled;
     }
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 }
+
 
