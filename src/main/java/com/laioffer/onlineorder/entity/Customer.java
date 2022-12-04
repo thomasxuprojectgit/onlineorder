@@ -20,6 +20,12 @@ public class Customer implements Serializable  {
 
     private boolean enabled;
 
+    // @JoinColumn(unique = true)   constrain Cart column in this table(Customer) is unique
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(unique = true)
+    private Cart cart;
+
+
     public String getEmail() {
         return email;
     }
@@ -58,6 +64,14 @@ public class Customer implements Serializable  {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }
 

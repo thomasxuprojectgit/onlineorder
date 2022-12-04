@@ -23,6 +23,9 @@ public class Restaurant implements Serializable {
 
     private String imageUrl;
 
+    @OneToMany(mappedBy = "restaurant",  cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<MenuItem> menuItemList;
+
     public int getId() {
         return id;
     }
@@ -62,5 +65,14 @@ public class Restaurant implements Serializable {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public List<MenuItem> getMenuItemList() {
+        return menuItemList;
+    }
+
+    public void setMenuItemList(List<MenuItem> menuItemList) {
+        this.menuItemList = menuItemList;
+    }
+
 }
 

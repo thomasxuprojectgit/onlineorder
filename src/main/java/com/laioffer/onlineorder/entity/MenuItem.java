@@ -22,6 +22,11 @@ public class MenuItem implements Serializable {
 
     private String imageUrl;
 
+    @ManyToOne
+    @JsonIgnore
+    private Restaurant restaurant;
+
+
     public int getId() {
         return id;
     }
@@ -61,5 +66,14 @@ public class MenuItem implements Serializable {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
 }
 
